@@ -3,6 +3,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import closeIcon from "../assets/close-icon.svg";
+import menuIcon from "../assets/menu-icon.svg";
 
 /*ANCHOR LINKS*/
 const Link = ({ page, selectedPage, setSelectedPage }) => {
@@ -20,13 +21,12 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
   );
 };
 
-const Navbar = ({ topPage, selectedPage, setSelectedPage }) => {
+const Navbar = ({ selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
-  const navbarBackground = topPage ? "" : "red";
 
   return (
-    <nav className="{`${navbarBackground} z-40 w-full fixed top-1 py-5 `}">
+    <nav className="{`z-40 w-full fixed top-1 py-5 `}">
       <div className="flex items-center justify-between mx-auto w-5/6">
         <h4 className="font-generalsans text-3xl font-bold">CHRIS</h4>
         {/*Desktop Nav*/}
@@ -58,10 +58,10 @@ const Navbar = ({ topPage, selectedPage, setSelectedPage }) => {
           </div>
         ) : (
           <button
-            className="rounded-full bg-clay p-1.5"
+            className="rounded-xl bg-clay p-3"
             onClick={() => setIsMenuToggled(!isMenuToggled)}
           >
-            <img alt="menu-icon" src="../assets/menu-icon.svg" width="40" />
+            <img alt="menu-icon" src={menuIcon} width="35" />
           </button>
         )}
         {/* Mobile menu pop up */}
