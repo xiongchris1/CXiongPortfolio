@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import useMediaQuery from "./hooks/useMediaQuery";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
+import PreLoader from "./components/PreLoader";
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [topPage, setTopPage] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,19 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /*PRELOADER*/
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  });
+
+  if (loading) {
+    return <PreLoader />;
+  }
+
+  /*DISPLAY*/
   return (
     <div className="app bg-red">
       <Navbar
