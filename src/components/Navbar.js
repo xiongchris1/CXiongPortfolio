@@ -4,20 +4,44 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import closeIcon from "../assets/close-icon.svg";
 import menuIcon from "../assets/menu-icon.svg";
+import logo from "../assets/c_logo.png";
 
 /*ANCHOR LINKS*/
 const Link = ({ page, selectedPage, setSelectedPage }) => {
   const lowerCasePage = page.toLowerCase();
+
   return (
-    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-      <AnchorLink
-        className={`${selectedPage === lowerCasePage ? "text-blue" : ""}`}
-        href={`#${lowerCasePage}`}
-        onClick={() => setSelectedPage(lowerCasePage)}
+    <AnchorLink
+      className={`${selectedPage === lowerCasePage ? "text-blue" : ""}`}
+      href={`#${lowerCasePage}`}
+      onClick={() => setSelectedPage(lowerCasePage)}
+    >
+      <motion.a
+        whileHover="onHover"
+        initial="start"
+        whileTap="onClick"
+        className="relative block overflow-hidden whitespace-nowrap"
       >
-        {page}
-      </AnchorLink>
-    </motion.div>
+        <motion.div
+          variants={{
+            start: { y: 0 },
+            onHover: { y: "-100%", transition: { duration: 0.3 } },
+          }}
+        >
+          {page}
+        </motion.div>
+        <motion.div
+          variants={{
+            onClick: { scale: 0.8 },
+            start: { y: "100%" },
+            onHover: { y: 0, transition: { duration: 0.3 } },
+          }}
+          className="absolute inset-0"
+        >
+          {page}
+        </motion.div>
+      </motion.a>
+    </AnchorLink>
   );
 };
 
@@ -33,7 +57,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
         {isAboveSmallScreens ? (
           <div
             className="flex justify-between gap-5  text-lg 
-            border-2 border-black  p-3 rounded-full uppercase"
+            p-3 rounded-full uppercase"
           >
             <Link
               page="Home"
@@ -75,7 +99,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
             </div>
 
             {/* MENU ITEMS */}
-            <div className="flex flex-col gap-10 ml-[33%] text-2xl text-white">
+            <div className="flex flex-col gap-10 ml-[22%] text-4xl font-extrabold text-white">
               <Link
                 page="Home"
                 selectedPage={selectedPage}
