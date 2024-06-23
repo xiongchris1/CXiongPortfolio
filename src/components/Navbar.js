@@ -4,7 +4,12 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import closeIcon from "../assets/close-icon.svg";
 import menuIcon from "../assets/menu-icon.svg";
-import logo from "../assets/c_logo.png";
+import logo from "../assets/logo.png";
+
+const navbarAnim = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: "-100%" },
+};
 
 /*ANCHOR LINKS*/
 const Link = ({ page, selectedPage, setSelectedPage }) => {
@@ -52,7 +57,18 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
   return (
     <nav className="{`z-40 w-full fixed top-1 py-5 `}">
       <div className="flex items-center justify-between mx-auto w-5/6">
-        <h4 className="font-generalsans text-3xl font-bold">CHRIS</h4>
+        {/* LOGO */}
+        <motion.img
+          layoutId="logo"
+          transition={{ duration: 1 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.3 },
+          }}
+          alt="logo"
+          src={logo}
+          className="w-[100px] h-[100px]"
+        />
         {/*Desktop Nav*/}
         {isAboveSmallScreens ? (
           <div
@@ -92,7 +108,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
         {!isAboveSmallScreens && isMenuToggled && (
           <div className="fixed right-0 bottom-0 h-full bg-deep-blue w-[300px]">
             {/* CLOSE ICON */}
-            <div className="flex justify-end p-5">
+            <div>
               <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
                 <img alt="close-icon" src={closeIcon} width="40" />
               </button>

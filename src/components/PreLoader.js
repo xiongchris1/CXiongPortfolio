@@ -1,5 +1,5 @@
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
-import logo from "../assets/c_logo.png";
+import logo from "../assets/logo.png";
 import { useEffect } from "react";
 
 const PreLoader = ({ setLoading }) => {
@@ -59,7 +59,7 @@ const PreLoader = ({ setLoading }) => {
           variants={textVariants}
           key="chris"
         >
-          Chris
+          CHRIS
         </motion.span>
         <motion.span
           className="py-1 text-5xl items-center justify-between 
@@ -67,15 +67,17 @@ const PreLoader = ({ setLoading }) => {
           variants={textVariants}
           key="xiong"
         >
-          Xiong
+          XIONG
         </motion.span>
       </div>
       <motion.div className="flex justify-center" variants={containerVariants}>
         <motion.img
+          layoutId={"logo"}
           alt="logo"
           src={logo}
-          className="rounded-full "
+          className=" bg-white border-white w-[90px] h-[90px] "
           variants={shapeVariants}
+          transition={{ duration: 1.1, ease: easeInOut }}
         />
       </motion.div>
     </motion.div>
