@@ -22,7 +22,7 @@ function App() {
 
   /*DISPLAY*/
   return (
-    <div className="app bg-red">
+    <div className="app">
       <AnimatePresence>
         {loading ? (
           <motion.div key="preloader">

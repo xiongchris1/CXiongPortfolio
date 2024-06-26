@@ -29,8 +29,12 @@ const PreLoader = ({ setLoading }) => {
     visible: { opacity: 1, y: 0, transition: { duration: 1.0 } },
     exit: {
       opacity: 0,
-      y: -900,
-      transition: { ease: easeInOut, duration: 1.6 },
+      scale: 0,
+      transition: {
+        duration: 1.1,
+        ease: "easeInOut",
+        type: "spring",
+      },
     },
   };
 

@@ -8,15 +8,51 @@ const Landing = ({ setSelectedPage }) => {
 
   const item = {
     hidden: {
-      opacity: 1,
+      opacity: 0,
       y: 201,
     },
     show: {
-      opacity: 2,
+      opacity: 1,
       y: 1,
       transition: {
-        ease: easeInOut,
+        ease: [0.6, -0.05, 0.01, 0.99],
         duration: 1,
+        type: "spring",
+        stiffness: 80,
+        damping: 20,
+      },
+    },
+  };
+
+  const mainVariants = {
+    hidden: { opacity: 0, x: -50, scale: 0.8, rotate: -45 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        delay: 0.5,
+        duration: 0.9,
+        ease: [0.6, -0.05, 0.01, 0.99],
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        ease: easeInOut,
+        type: "spring",
+        damping: 40,
       },
     },
   };
@@ -34,7 +70,7 @@ const Landing = ({ setSelectedPage }) => {
             variants={item}
             initial="hidden"
             animate="show"
-            className="relative z-0 ml-20 before:absolute before:-top-10 before:-left-20
+            className="relative z-0 ml-20 before:absolute before:-top-8 before:-left-14
              before:w-full before:max-w-[800px] before:h-full
             before:border-2 before:border-blue before:z-[-1]"
           >
@@ -54,6 +90,36 @@ const Landing = ({ setSelectedPage }) => {
               py-20 w-[450px] h-[700px]"
           />
         )}
+      </div>
+      {/* MAIN */}
+      <div className="z-30 basis-1/2 mt-12 md:mt-32">
+        {/* HEADING */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          animate="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={mainVariants}
+        >
+          <motion.p
+            className="text-8xl font-satoshi text-semi-black font-extrabold 
+           whitespace-nowrap z-10 text-center md:text-start "
+            transition={{ duration: 1.2 }}
+          >
+            CHRIS XIONG
+          </motion.p>
+        </motion.div>
+        {/*
+        <motion.p
+          initial="hidden"
+          animate="show"
+          variants={childVariants}
+          transition={{ staggerChildren: 0.3 }}
+          className="mt-6 mr-10 mb-7 px-12 font-light text-xl text-center md:text-start"
+        >
+          Software Developer || Font-End Focused
+        </motion.p>
+        */}
       </div>
     </section>
   );

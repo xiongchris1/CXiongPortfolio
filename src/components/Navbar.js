@@ -55,19 +55,22 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
 
   return (
-    <nav className="{`z-40 w-full fixed top-1 py-5 `}">
-      <div className="flex items-center justify-between mx-auto w-5/6">
+    <nav className="{`z-40 w-full fixed top-1`}">
+      <div
+        className="border-b-2 border-semi-black flex items-center justify-between 
+        py-4 mx-auto w-5/6"
+      >
         {/* LOGO */}
         <motion.img
           layoutId="logo"
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.5 }}
           whileHover={{
             scale: 1.2,
-            transition: { duration: 0.3 },
+            transition: { duration: 0.2 },
           }}
           alt="logo"
           src={logo}
-          className="w-[100px] h-[100px]"
+          className="w-[100px] h-[100px] "
         />
         {/*Desktop Nav*/}
         {isAboveSmallScreens ? (
