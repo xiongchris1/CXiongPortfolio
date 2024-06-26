@@ -1,4 +1,4 @@
-import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { AnimatePresence, easeIn, easeInOut, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import { useEffect } from "react";
 
@@ -21,19 +21,26 @@ const PreLoader = ({ setLoading }) => {
         staggerChildren: 0.1,
       },
     },
-    exit: { opacity: 0, transition: { duration: 0.5 } },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.05,
+        ease: easeIn,
+        duration: 1.6,
+      },
+    },
   };
 
   const textVariants = {
-    hidden: { opacity: 0, y: -100 },
+    hidden: { opacity: 0, y: -125 },
     visible: { opacity: 1, y: 0, transition: { duration: 1.0 } },
     exit: {
       opacity: 0,
       scale: 0,
       transition: {
-        duration: 1.1,
-        ease: "easeInOut",
-        type: "spring",
+        staggerChildren: 0.1,
+        duration: 0.8,
+        ease: easeInOut,
       },
     },
   };
@@ -61,7 +68,6 @@ const PreLoader = ({ setLoading }) => {
         <motion.span
           className=" text-white px-5 text-5xl font-bold"
           variants={textVariants}
-          key="chris"
         >
           CHRIS
         </motion.span>
@@ -69,7 +75,6 @@ const PreLoader = ({ setLoading }) => {
           className="py-1 text-5xl items-center justify-between 
         font-bold text-white overflow-hidden"
           variants={textVariants}
-          key="xiong"
         >
           XIONG
         </motion.span>

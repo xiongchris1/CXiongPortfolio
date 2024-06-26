@@ -2,21 +2,24 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { easeInOut, motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import profilePic from "../assets/img1.JPG";
+import AnimatedText from "./AnimatedText";
 
 const Landing = ({ setSelectedPage }) => {
   const aboveMediumScreens = useMediaQuery("(min-width: 1061px)");
 
-  const item = {
+  const imageVariants = {
     hidden: {
       opacity: 0,
-      y: 201,
+      x: 300,
+      transition: {
+        duration: 2,
+      },
     },
     show: {
       opacity: 1,
-      y: 1,
+      x: 0,
       transition: {
         ease: [0.6, -0.05, 0.01, 0.99],
-        duration: 1,
         type: "spring",
         stiffness: 80,
         damping: 20,
@@ -25,12 +28,11 @@ const Landing = ({ setSelectedPage }) => {
   };
 
   const mainVariants = {
-    hidden: { opacity: 0, x: -50, scale: 0.8, rotate: -45 },
+    hidden: { opacity: 0, y: 100, scale: 0 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       scale: 1,
-      rotate: 0,
       transition: {
         delay: 0.5,
         duration: 0.9,
@@ -57,6 +59,19 @@ const Landing = ({ setSelectedPage }) => {
     },
   };
 
+  const textVariants = {
+    initial: {
+      y: 400,
+    },
+    animate: {
+      y: 0,
+      transition: {
+        ease: [0.6, 0.01, -0.05, 0.95],
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <section
       id="home"
@@ -67,7 +82,7 @@ const Landing = ({ setSelectedPage }) => {
       <div className="md:order-2 flex justify-center basic-3/5 z-10 mt-16 md:mt-32">
         {aboveMediumScreens ? (
           <motion.div
-            variants={item}
+            variants={imageVariants}
             initial="hidden"
             animate="show"
             className="relative z-0 ml-20 before:absolute before:-top-8 before:-left-14
@@ -98,28 +113,19 @@ const Landing = ({ setSelectedPage }) => {
           initial="hidden"
           whileInView="visible"
           animate="show"
-          viewport={{ once: true, amount: 0.5 }}
           variants={mainVariants}
+          viewport={{ once: true, amount: 0.5 }}
         >
-          <motion.p
+          <motion.h2
             className="text-8xl font-satoshi text-semi-black font-extrabold 
-           whitespace-nowrap z-10 text-center md:text-start "
+           whitespace-nowrap flex z-10 text-center md:text-start "
             transition={{ duration: 1.2 }}
           >
             CHRIS XIONG
-          </motion.p>
+          </motion.h2>
         </motion.div>
-        {/*
-        <motion.p
-          initial="hidden"
-          animate="show"
-          variants={childVariants}
-          transition={{ staggerChildren: 0.3 }}
-          className="mt-6 mr-10 mb-7 px-12 font-light text-xl text-center md:text-start"
-        >
-          Software Developer || Font-End Focused
-        </motion.p>
-        */}
+        {/* DESCRIPTION */}
+        <AnimatedText text={"Software Developer"} />
       </div>
     </section>
   );
