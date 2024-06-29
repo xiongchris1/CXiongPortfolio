@@ -1,4 +1,4 @@
-import { AnimatePresence, easeIn, easeInOut, motion } from "framer-motion";
+import { easeIn, easeInOut, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import { useEffect } from "react";
 
@@ -84,7 +84,7 @@ const PreLoader = ({ setLoading }) => {
           layoutId={"logo"}
           alt="logo"
           src={logo}
-          className=" bg-white border-white w-[90px] h-[90px] "
+          className="bg-off-white w-[90px] h-[90px] "
           variants={shapeVariants}
           transition={{ duration: 1.1, ease: easeInOut }}
         />

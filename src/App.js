@@ -4,21 +4,25 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import PreLoader from "./components/PreLoader";
 import { AnimatePresence, motion } from "framer-motion";
+import Project from "./components/Projects";
+import Lenis from "lenis";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  const [topPage, setTopPage] = useState(true);
   const [loading, setLoading] = useState(true);
 
+  /* SMOOTH SCROLLING */
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) setTopPage(true);
-      if (window.scrollY !== 0) setTopPage(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  });
 
   /*DISPLAY*/
   return (
@@ -31,13 +35,15 @@ function App() {
         ) : (
           <>
             <Navbar
-              topPage={topPage}
               selectedPage={selectedPage}
               setSelectedPage={setSelectedPage}
               key="navbar"
             />
             <div className="w-5/6 mx-auto md:h-full">
               <Landing setSelectedPage={setSelectedPage} />
+            </div>
+            <div>
+              <Project />
             </div>
           </>
         )}

@@ -1,7 +1,7 @@
 import useMediaQuery from "../hooks/useMediaQuery";
 import { easeInOut, motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import profilePic from "../assets/img1.JPG";
+import profilePic from "../assets/img2.JPG";
 import AnimatedText from "./AnimatedText";
 
 const Landing = ({ setSelectedPage }) => {
@@ -20,6 +20,25 @@ const Landing = ({ setSelectedPage }) => {
       x: 0,
       transition: {
         ease: [0.6, -0.05, 0.01, 0.99],
+        type: "spring",
+        stiffness: 80,
+        damping: 20,
+      },
+    },
+  };
+
+  const mobileVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 0.7,
+        ease: easeInOut,
+      },
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        ease: [0.6, -0.05, 0.21, 0.5],
         type: "spring",
         stiffness: 80,
         damping: 20,
@@ -97,7 +116,10 @@ const Landing = ({ setSelectedPage }) => {
             />
           </motion.div>
         ) : (
-          <img
+          <motion.img
+            variants={mobileVariants}
+            initial="hidden"
+            animate="show"
             alt="ChrisXiong"
             src={profilePic}
             className="hover:filter hover:saturate-200 transition 

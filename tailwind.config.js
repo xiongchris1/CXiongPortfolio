@@ -13,6 +13,7 @@ module.exports = {
         "dark-grey": "#757575",
         "opaque-black": "rgba(0,0,0,0.35)",
         "off-white": "#fff7f0",
+        "off-black": "#080807",
         clay: "#bcbcaf",
         "semi-black": "#3d3835",
         "clay-2": "#a1a196",
