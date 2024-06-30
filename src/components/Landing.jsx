@@ -23,6 +23,7 @@ const Landing = ({ setSelectedPage }) => {
         type: "spring",
         stiffness: 80,
         damping: 20,
+        delay: 0.8,
       },
     },
   };
@@ -53,7 +54,7 @@ const Landing = ({ setSelectedPage }) => {
       y: 0,
       scale: 1,
       transition: {
-        delay: 0.5,
+        delay: 1.3,
         duration: 0.9,
         ease: [0.6, -0.05, 0.01, 0.99],
         type: "spring",

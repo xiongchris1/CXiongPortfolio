@@ -8,6 +8,7 @@ import {
   useScroll,
 } from "framer-motion";
 import logo from "../assets/logo.png";
+import { slideUp } from "./anim/SlideUp";
 
 /*ANCHOR LINKS*/
 const Link = ({ page, selectedPage, setSelectedPage }) => {
@@ -70,23 +71,24 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
       variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
       className={`z-40 w-full fixed`}
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.5, ease: easeInOut }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <div
+      <motion.div
         className="bg-off-white border-b-2 border-semi-black flex items-center justify-between 
         py-1 mx-auto "
       >
         {/* LOGO */}
         <motion.img
-          layoutId="logo"
-          transition={{ duration: 1.5 }}
+          initial={{ x: -900 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
           whileHover={{
             scale: 1.2,
             transition: { duration: 0.2 },
           }}
           alt="logo"
           src={logo}
-          className="ml-20 w-[100px] h-[100px] "
+          className="md:flex ml-20 w-[100px] h-[100px] "
         />
         {/*Desktop Nav*/}
         <div
@@ -114,7 +116,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
             setSelectedPage={setSelectedPage}
           />
         </div>
-      </div>
+      </motion.div>
     </motion.nav>
   );
 };

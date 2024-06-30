@@ -29,6 +29,9 @@ module.exports = {
         generalsans: ["General Sans", "sans - serif"],
         satoshi: ["Satoshi", "sans - serif"],
       },
+      maxWidth: {
+        "screen-md": "430px",
+      },
     },
   },
   plugins: [],
