@@ -1,4 +1,4 @@
-import { easeIn, easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import { useEffect, useState } from "react";
 import { slideUp } from "./anim/SlideUp.js";
