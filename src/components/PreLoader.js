@@ -1,14 +1,28 @@
 import { easeIn, easeInOut, motion } from "framer-motion";
 import logo from "../assets/logo.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { slideUp } from "./anim/SlideUp.js";
 
 const PreLoader = ({ setLoading }) => {
+  const [index, setIndex] = useState(0);
+  const words = ["Hello", "I", "Am", "Chris Xiong"];
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
     return () => clearTimeout(timer);
+  }, [setLoading]);
+
+  useEffect(() => {
+    if (index === words.length - 1) return;
+
+    setTimeout(
+      () => {
+        setIndex(index + 1);
+      },
+      index === 0 ? 2000 : 450,
+    );
   });
 
   const containerVariants = {
@@ -32,6 +46,27 @@ const PreLoader = ({ setLoading }) => {
     },
   };
 
+  const xiongVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+    exit: {
+      scale: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -40,7 +75,7 @@ const PreLoader = ({ setLoading }) => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.0 },
+      transition: { duration: 0.8 },
     },
     exit: {
       opacity: 0,
@@ -73,19 +108,24 @@ const PreLoader = ({ setLoading }) => {
       variants={containerVariants}
     >
       <motion.div className="flex flex-col items-center justify-center">
-        <motion.span
-          className="text-white px-5 text-5xl font-bold"
-          variants={textVariants}
-        >
-          CHRIS
-        </motion.span>
-        <motion.span
-          className="py-1 text-5xl items-center justify-between 
-        font-bold text-white overflow-hidden"
-          variants={textVariants}
-        >
-          XIONG
-        </motion.span>
+        {index < 3 && (
+          <motion.span
+            className="text-white px-5 text-5xl font-bold"
+            variants={textVariants}
+          >
+            {words[index]}
+          </motion.span>
+        )}
+        {index === 3 && (
+          <motion.span
+            variants={xiongVariants}
+            className="px-5 text-5xl font-bold font-satoshi text-off-white"
+          >
+            CHRIS
+            <br />
+            XIONG
+          </motion.span>
+        )}
       </motion.div>
       <motion.div className="flex justify-center" variants={shapeVariants}>
         <motion.img
