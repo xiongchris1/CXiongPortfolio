@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
-import {
-  easeInOut,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import logo from "../assets/logo.png";
-import { slideUp } from "./anim/SlideUp";
 
 /*ANCHOR LINKS*/
 const Link = ({ page, selectedPage, setSelectedPage }) => {
@@ -82,10 +76,6 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
           initial={{ x: -900 }}
           animate={{ x: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
-          whileHover={{
-            scale: 1.2,
-            transition: { duration: 0.2 },
-          }}
           alt="logo"
           src={logo}
           className="md:flex ml-20 w-[100px] h-[100px] "

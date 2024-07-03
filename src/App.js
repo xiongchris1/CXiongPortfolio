@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import PreLoader from "./components/PreLoader";
 import { AnimatePresence, motion } from "framer-motion";
-import Project from "./components/Projects";
+import Projects from "./components/Projects";
 import Lenis from "lenis";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
               <Landing setSelectedPage={setSelectedPage} />
             </div>
             <div>
-              <Project />
+              <Projects setSelectedPage={setSelectedPage} />
             </div>
           </>
         )}

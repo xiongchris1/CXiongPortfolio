@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import logo from "../assets/logo.png";
 import { useEffect, useState } from "react";
-import { slideUp } from "./anim/SlideUp.js";
+import {
+  containerVariants,
+  xiongVariants,
+  textVariants,
+  shapeVariants,
+} from "./Variants";
 
 const PreLoader = ({ setLoading }) => {
   const [index, setIndex] = useState(0);
@@ -21,82 +26,9 @@ const PreLoader = ({ setLoading }) => {
       () => {
         setIndex(index + 1);
       },
-      index === 0 ? 2000 : 450,
+      index === 0 ? 1750 : 350,
     );
   });
-
-  const containerVariants = {
-    hidden: { y: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-        duration: 1.2,
-      },
-    },
-    exit: {
-      y: "-100vh",
-      transition: {
-        staggerChildren: 0.05,
-        ease: "easeIn",
-        duration: 1.6,
-      },
-    },
-  };
-
-  const xiongVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-    },
-    exit: {
-      scale: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: {
-      opacity: 0,
-      y: -125,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-    exit: {
-      opacity: 0,
-      y: 125,
-      transition: {
-        duration: 0.8,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const shapeVariants = {
-    hidden: { opacity: 0, scale: 0, transition: { duration: 1.5 } },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-    exit: {
-      opacity: 0,
-      scale: 0,
-      y: 100,
-      transition: { ease: "easeInOut", duration: 0.7 },
-    },
-  };
 
   return (
     <motion.div

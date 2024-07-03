@@ -1,96 +1,12 @@
 import useMediaQuery from "../hooks/useMediaQuery";
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import profilePic from "../assets/img2.JPG";
-import AnimatedText from "./AnimatedText";
+import AnimatedText from "./anim/AnimatedText";
+import { mainVariants, mobileVariants, imageVariants } from "./Variants";
 
 const Landing = ({ setSelectedPage }) => {
   const aboveMediumScreens = useMediaQuery("(min-width: 1061px)");
-
-  const imageVariants = {
-    hidden: {
-      opacity: 0,
-      x: 300,
-      transition: {
-        duration: 2,
-      },
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        ease: [0.6, -0.05, 0.01, 0.99],
-        type: "spring",
-        stiffness: 80,
-        damping: 20,
-        delay: 0.8,
-      },
-    },
-  };
-
-  const mobileVariants = {
-    hidden: {
-      opacity: 0,
-      transition: {
-        duration: 0.7,
-        ease: easeInOut,
-      },
-    },
-    show: {
-      opacity: 1,
-      transition: {
-        ease: [0.6, -0.05, 0.21, 0.5],
-        type: "spring",
-        stiffness: 80,
-        damping: 20,
-      },
-    },
-  };
-
-  const mainVariants = {
-    hidden: { opacity: 0, y: 100, scale: 0 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: 1.3,
-        duration: 0.9,
-        ease: [0.6, -0.05, 0.01, 0.99],
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const childVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        ease: easeInOut,
-        type: "spring",
-        damping: 40,
-      },
-    },
-  };
-
-  const textVariants = {
-    initial: {
-      y: 400,
-    },
-    animate: {
-      y: 0,
-      transition: {
-        ease: [0.6, 0.01, -0.05, 0.95],
-        duration: 1,
-      },
-    },
-  };
 
   return (
     <section
