@@ -15,7 +15,7 @@ const PreLoader = ({ setLoading }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3500);
     return () => clearTimeout(timer);
   }, [setLoading]);
 
@@ -26,7 +26,7 @@ const PreLoader = ({ setLoading }) => {
       () => {
         setIndex(index + 1);
       },
-      index === 0 ? 1750 : 350,
+      index === 0 ? 1500 : 400,
     );
   });
 
