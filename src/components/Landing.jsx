@@ -1,6 +1,5 @@
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import profilePic from "../assets/img2.JPG";
 import AnimatedText from "./anim/AnimatedText";
 import { mainVariants, mobileVariants, imageVariants } from "./Variants";

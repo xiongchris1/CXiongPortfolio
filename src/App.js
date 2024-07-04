@@ -9,7 +9,6 @@ import Lenis from "lenis";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const [loading, setLoading] = useState(true);
 
   /* SMOOTH SCROLLING */

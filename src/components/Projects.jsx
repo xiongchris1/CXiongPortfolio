@@ -3,7 +3,6 @@ import ProjectItem from "./ProjectItem";
 import sandwichMaker from "../assets/sandwich-maker.mp4";
 import neonstreet from "../assets/neonstreet.jpg";
 import AnimatedText from "./anim/AnimatedText";
-import Cursor from "./anim/Cursor";
 
 const projects = [
   {

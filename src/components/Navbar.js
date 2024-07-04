@@ -45,8 +45,6 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
 };
 
 const Navbar = ({ selectedPage, setSelectedPage }) => {
-  const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
-
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
 
