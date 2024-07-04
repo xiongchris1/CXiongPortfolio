@@ -11,4 +11,5 @@ body,
 .app {
   height: 100%;
   background-image: linear-gradient(135deg, #fff7f0, #fff7f0);
+  -webkit-font-smoothing: antialiased;
 }
