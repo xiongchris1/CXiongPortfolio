@@ -11,9 +11,8 @@ const AnimatedText = ({ text, className, ...props }) => {
     visible: (i = 1) => ({
       opacity: 1,
       transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.05 * i,
-        delay: 1,
+        staggerChildren: 0.1,
+        delayChildren: 0.2 * i,
       },
     }),
   };
@@ -33,14 +32,14 @@ const AnimatedText = ({ text, className, ...props }) => {
 
   return (
     <motion.div
-      className={`ml-10 mt-5 text-semi-black ${className}`}
+      className={`mt-5 ${className}`}
       variants={container}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
       {...props}
     >
       {word.map((word, index) => (
-        <motion.span variants={childVariants} className="text-3xl" key={index}>
+        <motion.span variants={childVariants} key={index}>
           {word}
         </motion.span>
       ))}

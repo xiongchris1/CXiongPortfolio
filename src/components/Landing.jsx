@@ -64,7 +64,10 @@ const Landing = ({ setSelectedPage }) => {
           </motion.h2>
         </motion.div>
         {/* DESCRIPTION */}
-        <AnimatedText text={"Software Developer"} />
+        <AnimatedText
+          className="text-3xl px-10 text-semi-black"
+          text={"Software Developer"}
+        />
       </div>
     </section>
   );
