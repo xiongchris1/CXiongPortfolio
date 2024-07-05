@@ -58,10 +58,10 @@ const Projects = ({ setSelectedPage }) => {
         >
           <div
             className="text-off-white text-5xl
-           font-bold"
+           font-extrabold"
           >
             <AnimatedText className="text-center" text={"Projects /"} />
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-1 gap-8">
+            <div className="mt-7 grid grid-cols-1 md:grid-cols-1 gap-8">
               {projects.map((project, index) => (
                 <ProjectItem
                   key={index}

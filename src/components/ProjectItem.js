@@ -80,11 +80,20 @@ const ProjectItem = ({ project, setHovered }) => {
           </motion.div>
 
           {/* Project Details */}
+          <div className=" z-10 mt-4 px-12">
+            <p className="text-2xl text-off-white">{project.title}</p>
+          </div>
           <div
-            className="relative flex flex-col justify-center
-        items-center text-center z-10 mt-10"
+            className="absolute text-[18px] text-gray-400 mt-1 ml-11 
+              px-2 py-[2px] bg-transparent border-gray-400 border rounded-full"
           >
-            <p className="text-2xl font-mono text-off-white">{project.title}</p>
+            <span className="flex text-center">REACT</span>
+          </div>
+          <div
+            className="absolute text-[18px] text-gray-400 mt-1 ml-[125px] 
+              px-2 py-[2px] bg-transparent border-gray-400 border rounded-full"
+          >
+            <span className="flex text-center">THREEJS</span>
           </div>
         </div>
       )}
