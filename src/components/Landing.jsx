@@ -28,7 +28,7 @@ const Landing = ({ setSelectedPage }) => {
               alt="ChrisXiong"
               src={profilePic}
               className="hover:filter hover:saturate-200 transition 
-              duration-500 z-10 w-[650px]"
+              duration-500 z-10 w-[650px] "
             />
           </motion.div>
         ) : (
@@ -68,8 +68,7 @@ const Landing = ({ setSelectedPage }) => {
           >
             <motion.h2
               className="text-9xl md:text-9xl text-semi-black font-extrabold 
-           whitespace-nowrap flex z-10 text-center md:text-start 
-            sm:text-5xl sm:flex sm:items-center sm:justify-center sm:"
+              flex z-10 text-center md:text-start"
               transition={{ duration: 1.2 }}
             >
               CHRIS XIONG
