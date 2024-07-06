@@ -47,6 +47,7 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
 const Navbar = ({ selectedPage, setSelectedPage }) => {
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const aboveMediumScreens = useMediaQuery("(min-width: 1061px)");
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -59,53 +60,106 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
   });
 
   return (
-    <motion.nav
-      variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
-      className={`z-40 w-full fixed`}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
-      <motion.div
-        className="bg-off-white border-b-2 border-semi-black flex items-center justify-between 
-        py-1 mx-auto "
-      >
-        {/* LOGO */}
-        <motion.img
-          initial={{ x: -900 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
-          alt="logo"
-          src={logo}
-          className="md:flex ml-20 w-[100px] h-[100px] "
-        />
-        {/*Desktop Nav*/}
-        <div
-          className="flex justify-between gap-5  text-lg 
-            p-3 rounded-full uppercase"
+    <>
+      {aboveMediumScreens ? (
+        <motion.nav
+          variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+          className={`z-40 w-full fixed`}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <Link
-            page="Home"
-            selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-          />
-          <Link
-            page="Projects"
-            selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-          />
-          <Link
-            page="About"
-            selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-          />
-          <Link
-            page="Contact"
-            selectedPage={selectedPage}
-            setSelectedPage={setSelectedPage}
-          />
-        </div>
-      </motion.div>
-    </motion.nav>
+          <motion.div
+            className="bg-off-white border-b-2 border-semi-black flex items-center justify-between 
+        py-1 mx-auto "
+          >
+            {/* LOGO */}
+            <motion.img
+              initial={{ x: -900 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
+              alt="logo"
+              src={logo}
+              className="md:flex ml-20 w-[100px] h-[100px] "
+            />
+            {/*Desktop Nav*/}
+            <div
+              className="flex justify-between gap-5  text-lg 
+            p-3 rounded-full uppercase"
+            >
+              <Link
+                page="Home"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Projects"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="About"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Contact"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+            </div>
+          </motion.div>
+        </motion.nav>
+      ) : (
+        /* MOBILE */
+        <motion.nav
+          variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+          className={`z-40 w-full fixed`}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <motion.div
+            className="bg-off-white border-b-2 border-semi-black flex items-center justify-between 
+            py-1 mx-auto"
+          >
+            {/* LOGO */}
+            <motion.img
+              initial={{ x: -900 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.8 }}
+              alt="logo"
+              src={logo}
+              className="ml-3 w-[50px] h-[50px] "
+            />
+            {/*Desktop Nav*/}
+            <div
+              className="flex justify-between gap-5  text-lg 
+              p-3 rounded-full uppercase"
+            >
+              <Link
+                page="Home"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Projects"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="About"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+              <Link
+                page="Contact"
+                selectedPage={selectedPage}
+                setSelectedPage={setSelectedPage}
+              />
+            </div>
+          </motion.div>
+        </motion.nav>
+      )}
+    </>
   );
 };
 

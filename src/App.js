@@ -38,7 +38,7 @@ function App() {
               setSelectedPage={setSelectedPage}
               key="navbar"
             />
-            <div className="w-5/6 mx-auto md:h-full">
+            <div className="mx-auto md:h-full">
               <Landing setSelectedPage={setSelectedPage} />
             </div>
             <div>

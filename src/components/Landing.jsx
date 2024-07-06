@@ -10,45 +10,36 @@ const Landing = ({ setSelectedPage }) => {
   return (
     <section
       id="home"
-      className="md:flex md:justify-between md:items-center
-    md:h-full gap-15 py-10"
+      className="w-full flex flex-col md:flex-row md:justify-between md:items-center md:h-full gap-10 py-10"
     >
       {/* IMAGE */}
-      <div className="md:order-2 flex justify-center basic-3/5 z-10 mt-16 md:mt-32">
+      <div
+        className="md:order-2 w-full md:w-[40%]
+        z-10 mt-16 md:mt-32"
+      >
         {aboveMediumScreens ? (
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate="show"
-            className="relative z-0 ml-20 before:absolute before:-top-8 before:-left-14
-             before:w-full before:max-w-[800px] before:h-full
-            before:border-2 before:border-blue before:z-[-1]"
-          >
+          <motion.div variants={imageVariants} initial="hidden" animate="show">
             <img
               alt="ChrisXiong"
               src={profilePic}
-              className="hover:filter hover:saturate-200 transition 
-              duration-500 z-10 w-[650px] "
+              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-[560px]"
             />
           </motion.div>
         ) : (
-          <div>
+          <div className="flex flex-col items-center w-full">
             <motion.img
               variants={mobileVariants}
               initial="hidden"
               animate="show"
               alt="ChrisXiong"
               src={profilePic}
-              className="hover:filter hover:saturate-200 transition 
-              duration-500 z-10 max-width-[400px]
-              py-20 w-[500px] "
+              className="z-10 py-10 max-w-[300px] w-full h-auto"
             />
             <motion.h2
               initial="hidden"
               animate="visible"
               variants={mainVariants}
-              className="text-5xl flex items-center justify-center 
-                font-bold text-semi-black "
+              className="text-5xl font-bold text-semi-black text-center"
             >
               CHRIS XIONG
             </motion.h2>
@@ -56,7 +47,7 @@ const Landing = ({ setSelectedPage }) => {
         )}
       </div>
       {/* MAIN */}
-      <div className="z-30 basis-1/2 mt-12 md:mt-32">
+      <div className="z-30 w-full -mt-[50px] md:w-1/2 md:mt-32 flex flex-col items-center md:items-start">
         {/* HEADING */}
         {aboveMediumScreens ? (
           <motion.div
@@ -65,35 +56,24 @@ const Landing = ({ setSelectedPage }) => {
             animate="show"
             variants={mainVariants}
             viewport={{ once: true, amount: 0.5 }}
+            className="w-full ml-20"
           >
             <motion.h2
-              className="text-9xl md:text-9xl text-semi-black font-extrabold 
-              flex z-10 text-center md:text-start"
+              className="text-9xl text-semi-black font-extrabold z-10 md:text-start text-center"
               transition={{ duration: 1.2 }}
             >
               CHRIS XIONG
             </motion.h2>
           </motion.div>
-        ) : (
-          <></>
-        )}
+        ) : null}
         {/* DESCRIPTION */}
-        {aboveMediumScreens ? (
-          <AnimatedText
-            className="text-3xl px-10 text-semi-black"
-            text={"Software Developer"}
-          />
-        ) : (
-          <>
-            <AnimatedText
-              className="flex items-center justify-center text-3xl font-thin
-                text-semi-black"
-              text={"Software Developer"}
-            />
-          </>
-        )}
+        <AnimatedText
+          className={`text-3xl ${aboveMediumScreens ? "px-[150px]" : "text-center font-thin"} text-semi-black`}
+          text={"Software Developer"}
+        />
       </div>
     </section>
   );
 };
+
 export default Landing;
