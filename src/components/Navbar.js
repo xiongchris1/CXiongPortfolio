@@ -131,10 +131,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
               className="ml-3 w-[50px] h-[50px] "
             />
             {/*Desktop Nav*/}
-            <div
-              className="flex justify-between gap-5  text-lg 
-              p-3 rounded-full uppercase"
-            >
+            <div className="flex justify-between gap-3 text-md px-4 uppercase">
               <Link
                 page="Home"
                 selectedPage={selectedPage}

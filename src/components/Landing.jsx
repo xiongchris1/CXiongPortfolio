@@ -26,7 +26,7 @@ const Landing = ({ setSelectedPage }) => {
             />
           </motion.div>
         ) : (
-          <div className="flex flex-col items-center w-full">
+          <div className="-mt-[60px] flex flex-col items-center w-full">
             <motion.img
               variants={mobileVariants}
               initial="hidden"
