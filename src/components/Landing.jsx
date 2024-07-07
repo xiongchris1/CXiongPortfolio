@@ -5,7 +5,7 @@ import AnimatedText from "./anim/AnimatedText";
 import { mainVariants, mobileVariants, imageVariants } from "./Variants";
 
 const Landing = ({ setSelectedPage }) => {
-  const aboveMediumScreens = useMediaQuery("(min-width: 1061px)");
+  const aboveMediumScreens = useMediaQuery("(min-width: 800px)");
 
   return (
     <section

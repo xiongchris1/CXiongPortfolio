@@ -4,7 +4,6 @@ import sandwichMaker from "../assets/sandwich-maker.mp4";
 import whiteRoom from "../assets/whiteroom.jpg";
 import AnimatedText from "./anim/AnimatedText";
 import useMediaQuery from "../hooks/useMediaQuery";
-import test from "../assets/img1.JPG";
 
 const projects = [
   {
@@ -41,13 +40,6 @@ const Projects = ({ setSelectedPage }) => {
                 />
               ))}
             </div>
-          </div>
-          <div
-            className="absolute bg-blue w-[70px] h-[70px] 
-            flex items-center justify-center 
-            pointer-events-none rounded-full"
-          >
-            View
           </div>
         </section>
       ) : (

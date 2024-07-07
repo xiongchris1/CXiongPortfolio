@@ -139,8 +139,18 @@ const mainVariants = {
   },
 };
 
+const cursorVariants = {
+  hidden: {
+    scale: 0,
+  },
+  visible: {
+    scale: 1,
+  },
+};
+
 export {
   mainVariants,
+  cursorVariants,
   mobileVariants,
   imageVariants,
   containerVariants,
