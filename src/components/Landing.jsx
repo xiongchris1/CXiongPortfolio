@@ -22,7 +22,7 @@ const Landing = ({ setSelectedPage }) => {
             <img
               alt="ChrisXiong"
               src={profilePic}
-              className="hover:filter hover:saturate-200 transition duration-500 z-10 lg:w-[90%] w-[560px]"
+              className="hover:filter hover:saturate-200 transition duration-500 z-10 lg:w-[650px] w-[560px]"
             />
           </motion.div>
         ) : (
@@ -56,7 +56,7 @@ const Landing = ({ setSelectedPage }) => {
             animate="show"
             variants={mainVariants}
             viewport={{ once: true, amount: 0.5 }}
-            className="w-full ml-20"
+            className="w-full ml-5"
           >
             <motion.h2
               className="text-9xl lg:text-[800%] text-semi-black font-extrabold z-10 md:text-start text-center"
