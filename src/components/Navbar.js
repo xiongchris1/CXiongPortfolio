@@ -70,7 +70,7 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
         >
           <motion.div
             className="bg-off-white border-b-2 border-semi-black flex items-center justify-between 
-        py-1 mx-auto "
+            py-1 mx-auto "
           >
             {/* LOGO */}
             <motion.img
@@ -83,8 +83,8 @@ const Navbar = ({ selectedPage, setSelectedPage }) => {
             />
             {/*Desktop Nav*/}
             <div
-              className="flex justify-between gap-5  text-lg 
-            p-3 rounded-full uppercase"
+              className="flex justify-between gap-5 text-lg lg:text-2xl
+              p-3 rounded-full uppercase"
             >
               <Link
                 page="Home"

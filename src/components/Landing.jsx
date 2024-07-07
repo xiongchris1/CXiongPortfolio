@@ -22,7 +22,7 @@ const Landing = ({ setSelectedPage }) => {
             <img
               alt="ChrisXiong"
               src={profilePic}
-              className="hover:filter hover:saturate-200 transition duration-500 z-10 w-[560px]"
+              className="hover:filter hover:saturate-200 transition duration-500 z-10 lg:w-[90%] w-[560px]"
             />
           </motion.div>
         ) : (
@@ -47,7 +47,7 @@ const Landing = ({ setSelectedPage }) => {
         )}
       </div>
       {/* MAIN */}
-      <div className="z-30 w-full -mt-[50px] md:w-1/2 md:mt-32 flex flex-col items-center md:items-start">
+      <div className="z-30 w-full lg:ml-20 -mt-[50px] md:ml-[7%] md:w-1/2 md:mt-32 flex flex-col items-center md:items-start">
         {/* HEADING */}
         {aboveMediumScreens ? (
           <motion.div
@@ -59,7 +59,7 @@ const Landing = ({ setSelectedPage }) => {
             className="w-full ml-20"
           >
             <motion.h2
-              className="text-9xl text-semi-black font-extrabold z-10 md:text-start text-center"
+              className="text-9xl lg:text-[800%] text-semi-black font-extrabold z-10 md:text-start text-center"
               transition={{ duration: 1.2 }}
             >
               CHRIS XIONG

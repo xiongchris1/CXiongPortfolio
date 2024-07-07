@@ -34,12 +34,12 @@ const ProjectItem = ({ project }) => {
     <>
       {aboveMediumScreens ? (
         /* DESKTOP */
-        <motion.div className="relative flex items-center w-[125%]">
+        <motion.div className="relative flex items-center w-[140%] lg:pt-20">
           {/* Project Details */}
           <div className="z-10 absolute">
             <p
-              className="text-4xl lg:-ml-[50%] lg:relative font-thin text-off-white 
-              md:absolute md:ml-11"
+              className="text-4xl lg:text-8xl lg:-ml-[20%] lg:absolute font-bold
+              text-off-white md:absolute md:ml-11"
             >
               {project.title}
             </p>
@@ -129,8 +129,10 @@ const ProjectItem = ({ project }) => {
             </motion.div>
 
             {/* Project Details */}
-            <div className=" z-10 mt-4 px-[24%] flex flex-col items-start">
-              <p className="text-2xl text-off-white">{project.title}</p>
+            <div className="z-10 mt-4 px-[24%] flex flex-col items-start">
+              <p className="text-2xl lg:text-3xl text-off-white">
+                {project.title}
+              </p>
             </div>
             <div
               className="absolute text-[18px] text-gray-400 mt-1 ml-11 flex flex-col 
